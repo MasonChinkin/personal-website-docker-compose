@@ -1,3 +1,8 @@
 .DS_Store
 baseapp/
 homepage/
+.bash_logout
+.bashrc
+.profile
+.viminfo
+get-docker.sh
