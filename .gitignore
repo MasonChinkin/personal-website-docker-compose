@@ -1,6 +1,5 @@
 .DS_Store
-baseapp/
-homepage/
+/certbot
 .bash_logout
 .bashrc
 .profile
