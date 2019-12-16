@@ -1,3 +1,5 @@
+# git stash is required during ssh because the automated ssl certification script makes small changes
+
 steps:
   - id: 'ssh into GCE instance'
     name: gcr.io/cloud-builders/gcloud
@@ -9,7 +11,9 @@ steps:
       'portfolio',
       '--',
       'cd ../chinkinma_gmail_com/personal-website-docker-compose',
-      '&& sudo docker-compose down && sudo git stash && sudo git pull',
+      '&& sudo docker-compose down',
+      '&& sudo git stash',
+      '&& sudo git pull',
       '&& sudo chmod +x init-letsencrypt.sh',
       '&& cd ..',
       '&& sudo docker-compose -f personal-website-docker-compose/docker-compose.yaml up -d',
