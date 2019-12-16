@@ -8,6 +8,6 @@ steps:
       'us-central1-a',
       'portfolio',
       '--',
-      'cd ../chinkinma_gmail_com/personal-website-docker-compose && \ 
-      sudo docker-compose down && sudo git stash && sudo git pull && sudo chmod +x init-letsencrypt.sh && cd .. && sudo docker-compose -f personal-website-docker-compose/docker-compose.yaml up -d && sudo docker ps'
+      'cd ../chinkinma_gmail_com/personal-website-docker-compose',
+      '&& sudo docker-compose down && sudo git stash && sudo git pull && sudo chmod +x init-letsencrypt.sh && cd .. && sudo docker-compose -f personal-website-docker-compose/docker-compose.yaml up -d && sudo docker ps'
     ]
