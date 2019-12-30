@@ -1,6 +1,14 @@
 # git stash is required during ssh because the automated ssl certification script makes small changes
 
 steps:
+  - id: 'delete old cloudbuild ssh keys to keep profile json under 32kb limit'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+      for i in $(gcloud compute os-login ssh-keys list | grep -v FINGERPRINT); do echo $i; gcloud compute os-login ssh-keys remove --key $i; done
+  
   - id: 'ssh into GCE instance'
     name: gcr.io/cloud-builders/gcloud
     args: [
