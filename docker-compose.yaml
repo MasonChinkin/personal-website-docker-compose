@@ -2,7 +2,7 @@ version: '3.6'
 services:
   nginx:
     image: nginx:1.17-alpine
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./certbot/conf:/etc/letsencrypt
@@ -22,12 +22,12 @@ services:
 
   homepage:
     image: gcr.io/portfolio-252919/personal-website-homepage
-    restart: always
+    restart: unless-stopped
     depends_on:
       - nginx
 
   baseapp:
     image: gcr.io/portfolio-252919/personal-website-base-app
-    restart: always
+    restart: unless-stopped
     depends_on:
       - nginx
