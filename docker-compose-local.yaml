@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  nginx:
+    image: nginx:1.17-alpine
+    restart: unless-stopped
+    volumes:
+      - ./nginx-local.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8000:80
+
+  homepage:
+    image: gcr.io/portfolio-252919/personal-website-homepage
+    restart: unless-stopped
+    depends_on:
+      - nginx
+
+  d3-experiments:
+    image: gcr.io/portfolio-252919/personal-website-d3-experiments
+    restart: unless-stopped
+    depends_on:
+      - nginx
+
+  baseapp:
+    image: gcr.io/portfolio-252919/personal-website-base-app
+    restart: unless-stopped
+    depends_on:
+      - nginx
