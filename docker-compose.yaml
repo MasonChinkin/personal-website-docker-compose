@@ -26,6 +26,12 @@ services:
     depends_on:
       - nginx
 
+  d3-experiments:
+    image: gcr.io/portfolio-252919/personal-website-d3-experiments
+    restart: unless-stopped
+    depends_on:
+      - nginx
+
   baseapp:
     image: gcr.io/portfolio-252919/personal-website-base-app
     restart: unless-stopped
