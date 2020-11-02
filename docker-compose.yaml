@@ -26,8 +26,8 @@ services:
     depends_on:
       - nginx
 
-  d3-experiments:
-    image: gcr.io/portfolio-252919/personal-website-d3-experiments
+  d3-projects:
+    image: gcr.io/portfolio-252919/d3-projects
     restart: unless-stopped
     depends_on:
       - nginx
